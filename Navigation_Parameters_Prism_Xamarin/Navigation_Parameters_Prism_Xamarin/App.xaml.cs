@@ -1,4 +1,5 @@
-﻿using Navigation_Parameters_Prism_Xamarin.Views;
+﻿using Navigation_Parameters_Prism_Xamarin.ViewModels;
+using Navigation_Parameters_Prism_Xamarin.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Unity;
@@ -15,15 +16,15 @@ namespace Navigation_Parameters_Prism_Xamarin
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync($"/{Config.MainTabbedPage}");
+            await NavigationService.NavigateAsync($"/{Config.NavigationPage}/{Config.MainTabbedPage}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<NavigationPage>(Config.NavigationPage);
+            containerRegistry.RegisterForNavigation<NavigationPage>(Config.NavigationPage) ;
             containerRegistry.RegisterForNavigation<MainTabbedPage>(Config.MainTabbedPage);
-            containerRegistry.RegisterForNavigation<HomePage>(Config.HomePage);
-            containerRegistry.RegisterForNavigation<DetailPage>(Config.DetailPage);
+            containerRegistry.RegisterForNavigation<HomePage, HomeViewModel>(Config.HomePage);
+            containerRegistry.RegisterForNavigation<DetailPage, DetailViewModel>(Config.DetailPage);
         }
     }
 }

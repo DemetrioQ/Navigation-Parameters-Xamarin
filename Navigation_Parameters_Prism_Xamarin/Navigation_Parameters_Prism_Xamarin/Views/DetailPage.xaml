@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Navigation_Parameters_Prism_Xamarin.Views.DetailPage">
+             x:Class="Navigation_Parameters_Prism_Xamarin.Views.DetailPage"
+             >
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Detail.Title}" HorizontalTextAlignment="Center" TextColor='White' FontSize="20"  Margin="0, 0, 75, 0"></Label>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image Source="{Binding Detail.Image}" Aspect="Fill" HeightRequest="250"></Image>
+            <Label Text="{Binding Detail.Duration}"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

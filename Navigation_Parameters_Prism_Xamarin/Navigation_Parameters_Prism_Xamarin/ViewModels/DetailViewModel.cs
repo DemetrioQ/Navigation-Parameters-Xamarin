@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Navigation_Parameters_Prism_Xamarin.ViewModels
 {
-    public class DetailViewModel : BaseViewModel
+    public class DetailViewModel : BaseViewModel, IInitialize
     {
         public Detail Detail { get; set; }
         public DetailViewModel(INavigationService navigationService) : base(navigationService)
@@ -14,20 +14,11 @@ namespace Navigation_Parameters_Prism_Xamarin.ViewModels
 
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
+        public void Initialize(INavigationParameters parameters)
         {
-
-        }
-
-        public void OnNavigatedTo(INavigationParameters parameters)
-        {
-            if (parameters.GetNavigationMode() == NavigationMode.Back)
+            if (parameters.TryGetValue("Detail", out Detail detail))
             {
-                if (parameters.TryGetValue("Detail", out Detail detail))
-                {
-                    Detail = detail;
-                }
-
+                Detail = detail;
             }
         }
     }

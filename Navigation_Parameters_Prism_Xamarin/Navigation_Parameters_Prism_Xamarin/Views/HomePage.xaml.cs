@@ -13,6 +13,7 @@ namespace Navigation_Parameters_Prism_Xamarin.Views
         public HomePage()
         {
             InitializeComponent();
+
         }
     }
 }

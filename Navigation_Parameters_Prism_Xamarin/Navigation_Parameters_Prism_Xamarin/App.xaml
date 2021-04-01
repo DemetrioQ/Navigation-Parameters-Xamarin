@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Navigation_Parameters_Prism_Xamarin.App">
     <prism:PrismApplication.Resources>
-
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="HasNavigationBar" Value="True" />
+                <Setter Property="BarTextColor" Value="Black" />
+                <Setter Property="BarBackgroundColor" Value="Teal" />
+            </Style>
+        </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

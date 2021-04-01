@@ -12,19 +12,19 @@ namespace Navigation_Parameters_Prism_Xamarin.ViewModels
     public class HomeViewModel : BaseViewModel
     {
         public string Title { get; set; } = "Quick Help";
-        public ICommand MoveCommand { get; }
+        public ICommand ShowDetailCommand { get; }
         public ObservableCollection<Detail> Details { get; set; }
         public Detail Detail { get; set;}
         public HomeViewModel(INavigationService navigationService) : base(navigationService)
         {
             Details = new ObservableCollection<Detail>() 
             { 
-                new Detail(){Title = "Raining Sidewalk", Image = ""},
-                new Detail(){Title = "Spring Morning", Image = ""},
-                new Detail(){Title = "Another Thing", Image = ""},
-                new Detail(){Title = "Another Thing 2", Image = ""}
+                new Detail(){Title = "Raining Sidewalk", Image = "RainySidewalk.jpg", Duration="5 mins"},
+                new Detail(){Title = "Spring Morning", Image = "SpringMorning.jpg", Duration="7 mins"},
+                new Detail(){Title = "Peace Sign", Image = "PeaceSign.jpg", Duration="4 mins"},
+                new Detail(){Title = "Another Thing 2", Image = "", Duration="3 mins"}
             };
-            MoveCommand = new DelegateCommand<Detail>(OnMove);
+            ShowDetailCommand = new DelegateCommand<Detail>(OnMove);
         }
 
         public async void  OnMove(Detail detail)
@@ -32,8 +32,9 @@ namespace Navigation_Parameters_Prism_Xamarin.ViewModels
             Detail = detail;
             var parameters = new NavigationParameters();
             parameters.Add("Detail", Detail);
-            await NavigationService.GoBackAsync(parameters);
-        }
+            await NavigationService.NavigateAsync($"{Config.DetailPage}", parameters);
+            Detail = null;
 
+        }
     }
 }

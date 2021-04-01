@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace Navigation_Parameters_Prism_Xamarin.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainTabbedPage : ContentPage
+    public partial class MainTabbedPage : TabbedPage
     {
         public MainTabbedPage()
         {

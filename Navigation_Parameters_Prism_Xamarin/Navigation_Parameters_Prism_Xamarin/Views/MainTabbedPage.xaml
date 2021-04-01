@@ -1,12 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Navigation_Parameters_Prism_Xamarin.Views.MainTabbedPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+             x:Class="Navigation_Parameters_Prism_Xamarin.Views.MainTabbedPage"
+            xmlns:local="clr-namespace:Navigation_Parameters_Prism_Xamarin.Views"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="Black"
+            android:TabbedPage.BarSelectedItemColor="Red" 
+            NavigationPage.HasNavigationBar="False">
+
+    <NavigationPage.TitleView>
+        <Label Text="Quick Help" Margin="10,20,0,50" Padding="0"/>
+    </NavigationPage.TitleView>
+
+    <!--Pages can be added as references or inline-->
+    <TabbedPage.Children>
+        <local:HomePage IconImageSource="home" />
+    </TabbedPage.Children>
+</TabbedPage>

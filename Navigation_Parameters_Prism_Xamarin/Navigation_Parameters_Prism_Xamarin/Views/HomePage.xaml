@@ -1,24 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Navigation_Parameters_Prism_Xamarin.Views.HomePage">
+             x:Class="Navigation_Parameters_Prism_Xamarin.Views.HomePage"
+             x:Name="homePage"
+             Title="Home"
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Frame" x:Key="HeaderFrame">
+            <Setter Property="Grid.Row" Value="0"></Setter>
+            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="WidthRequest" Value="50"></Setter>
+            <Setter Property="CornerRadius" Value="10"></Setter>
+            <Setter Property="Padding" Value="2"></Setter>
+        </Style>
+        <Style TargetType="Image" x:Key="HeaderImageFrame">
+            <Setter Property="Aspect" Value="AspectFit"></Setter>
+            <Setter Property="Margin" Value="3"></Setter>
+        </Style>
+        <Style TargetType="Label" x:Key="HeaderLabels">
+            <Setter Property="Grid.Row" Value="1"></Setter>
+            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+        </Style>
 
+    </ContentPage.Resources>
+    
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+        <Grid ColumnDefinitions="*,Auto" Margin="10,5,0,10" RowDefinitions="Auto">
+            <Label Text="{Binding Title}" FontSize="Large" FontAttributes="Bold" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
+            <Image Grid.Column="1" Grid.Row="0"></Image>
+        </Grid>
+        <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,*,*,*" HeightRequest="180" ColumnSpacing="25" >
 
+            <Frame  Grid.Column="0" Style="{StaticResource HeaderFrame}">
+                <Image Source="breath" Style="{StaticResource HeaderImageFrame}"></Image>
+            </Frame>
+            <Label Text="Breathe" Grid.Column="0" Style="{StaticResource HeaderLabels}"></Label>
+
+            <Frame Grid.Column="1"  Style="{StaticResource HeaderFrame}">
+                <Image Source="moon"  Style="{StaticResource HeaderImageFrame}"></Image>
+            </Frame>
+            <Label Text="Sleep" Grid.Column="1" Style="{StaticResource HeaderLabels}"></Label>
+
+            <Frame Grid.Column="2"  Style="{StaticResource HeaderFrame}">
+                <Image Source="anxiety"  Style="{StaticResource HeaderImageFrame}"></Image>
+            </Frame>
+            <Label Text="Anxiety" Grid.Column="2" Style="{StaticResource HeaderLabels}"></Label>
+
+            <Frame Grid.Column="3"  Style="{StaticResource HeaderFrame}">
+                <Image Source="stress"  Style="{StaticResource HeaderImageFrame}"></Image>
+            </Frame>
+            <Label Text="Stress" Grid.Column="3"  Style="{StaticResource HeaderLabels}"></Label>
+        </Grid>
+
+
+        <Label Text="Daily meditations" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10,0,0,5"></Label>
+        
+        <Grid RowDefinitions="*,Auto,Auto" ColumnDefinitions="*,*"  Margin="15,0,15,0"> 
+            <Frame  CornerRadius="15" Grid.ColumnSpan="3" Grid.RowSpan="3" Padding="0" Grid.Column="0" Grid.Row="0" HeightRequest="700">
+                <Image Source="RestAndRelax.jpg" Aspect="AspectFill" ></Image>
+            </Frame>
+            <Label Text="Rest and Relax" Grid.Column="0" Grid.Row="1" Margin="15,0,0,0" FontAttributes="Bold" TextColor="Black" FontSize="16"></Label>
+
+            <Grid Grid.Column="0" Grid.Row="2" ColumnDefinitions="Auto,Auto" >
+                <Image Source="time" Grid.Column="0" HeightRequest="15" Margin="15,0,0,0"></Image>
+                <Label Text="30 mins" Grid.Column="1"  FontSize="16"></Label>
+            </Grid>
+        </Grid>
+        <Grid RowDefinitions="25" ColumnDefinitions="*, Auto" Margin="10,0,0,5">
+            <Label Text="New Music" FontSize="Large" FontAttributes="Bold" TextColor="Black"   Grid.Row="0" Grid.Column="0"/>
+            <Label Text="View All" FontSize="16" FontAttributes="Bold" Grid.Row="0" Grid.Column="1"/>
+
+        </Grid>
+
+        <CollectionView ItemsSource="{Binding Details}" Margin="10">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"></LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <StackLayout>
+                            <Frame CornerRadius="10" Padding="0">
+                                <Grid ColumnDefinitions="150" RowDefinitions="110,20,20">
+                                    <Image Source="{Binding Image}" Aspect="Fill" Grid.Row="0" ></Image>
+                                    <Label Text="{Binding Title}" Grid.Row="1"  Margin="5,0,0,0" FontAttributes="Bold" TextColor="Black"/>
+
+                                    <Grid Grid.Row="2" ColumnDefinitions="20,50" >
+                                        <Image Source="time" HeightRequest="15" Grid.Column="0" Margin="5,0,0,0"></Image>
+                                        <Label Text="{Binding Duration}" Grid.Column="1" />
+                                    </Grid>
+                                </Grid>
+
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding Source={x:Reference homePage}, Path=BindingContext.ShowDetailCommand}" CommandParameter="{Binding}" ></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>

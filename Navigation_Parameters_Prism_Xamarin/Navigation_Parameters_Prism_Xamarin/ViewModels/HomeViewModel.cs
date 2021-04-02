@@ -49,7 +49,7 @@ namespace Navigation_Parameters_Prism_Xamarin.ViewModels
         {
             Detail = detail;
             var parameters = new NavigationParameters();
-            parameters.Add("Detail", Detail);
+            parameters.Add(Config.DetailParam, Detail);
             await NavigationService.NavigateAsync($"{Config.DetailPage}", parameters);
             Detail = null;
 

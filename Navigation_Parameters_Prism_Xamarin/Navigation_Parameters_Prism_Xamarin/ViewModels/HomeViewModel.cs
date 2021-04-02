@@ -11,6 +11,25 @@ namespace Navigation_Parameters_Prism_Xamarin.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
+        public string HeaderTitle1 { get; set; } = "Breathe";
+        public string HeaderTitle2 { get; set; } = "Sleep";
+        public string HeaderTitle3 { get; set; } = "Anxiety";
+        public string HeaderTitle4 { get; set; } = "Stress";
+
+        public string HeaderImage1 { get; set; } = "breath";
+        public string HeaderImage2 { get; set; } = "moon";
+        public string HeaderImage3 { get; set; } = "anxiety";
+        public string HeaderImage4 { get; set; } = "stress";
+
+        public string MiddleHeaderTitle { get; set; } = "Daily meditations";
+        public string MiddleHeaderImage { get; set; } = "RestAndRelax.jpg";
+        public string MiddleHeaderImageText1 { get; set; } = "Rest and Relax";
+        public string MiddleHeaderImageBeforeText2 { get; set; } = "time";
+        public string MiddleHeaderImageText2 { get; set; } = "30 mins";
+
+        public string BottomHeaderTitle { get; set; } = "Daily meditations";
+        public string BottomHeaderTitle2 { get; set; } = "ViewAll";
+
         public string Title { get; set; } = "Quick Help";
         public ICommand ShowDetailCommand { get; }
         public ObservableCollection<Detail> Details { get; set; }

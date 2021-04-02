@@ -33,43 +33,44 @@
         <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,*,*,*" HeightRequest="180" ColumnSpacing="25" >
 
             <Frame  Grid.Column="0" Style="{StaticResource HeaderFrame}">
-                <Image Source="breath" Style="{StaticResource HeaderImageFrame}"></Image>
+                <Image Source="{Binding HeaderImage1}" Style="{StaticResource HeaderImageFrame}"></Image>
             </Frame>
-            <Label Text="Breathe" Grid.Column="0" Style="{StaticResource HeaderLabels}"></Label>
+            <Label Text="{Binding HeaderTitle1}" Grid.Column="0" Style="{StaticResource HeaderLabels}"></Label>
 
             <Frame Grid.Column="1"  Style="{StaticResource HeaderFrame}">
-                <Image Source="moon"  Style="{StaticResource HeaderImageFrame}"></Image>
+                <Image Source="{Binding HeaderImage2}"  Style="{StaticResource HeaderImageFrame}"></Image>
             </Frame>
-            <Label Text="Sleep" Grid.Column="1" Style="{StaticResource HeaderLabels}"></Label>
+            <Label Text="{Binding HeaderTitle2}" Grid.Column="1" Style="{StaticResource HeaderLabels}"></Label>
 
             <Frame Grid.Column="2"  Style="{StaticResource HeaderFrame}">
-                <Image Source="anxiety"  Style="{StaticResource HeaderImageFrame}"></Image>
+                <Image Source="{Binding HeaderImage3}"  Style="{StaticResource HeaderImageFrame}"></Image>
             </Frame>
-            <Label Text="Anxiety" Grid.Column="2" Style="{StaticResource HeaderLabels}"></Label>
+            <Label Text="{Binding HeaderTitle3}" Grid.Column="2" Style="{StaticResource HeaderLabels}"></Label>
 
             <Frame Grid.Column="3"  Style="{StaticResource HeaderFrame}">
-                <Image Source="stress"  Style="{StaticResource HeaderImageFrame}"></Image>
+                <Image Source="{Binding HeaderImage4}"  Style="{StaticResource HeaderImageFrame}"></Image>
             </Frame>
-            <Label Text="Stress" Grid.Column="3"  Style="{StaticResource HeaderLabels}"></Label>
+            <Label Text="{Binding HeaderTitle4}" Grid.Column="3"  Style="{StaticResource HeaderLabels}"></Label>
         </Grid>
 
 
-        <Label Text="Daily meditations" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10,0,0,5"></Label>
+        <Label Text="{Binding MiddleHeaderTitle}" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10,0,0,5"></Label>
         
         <Grid RowDefinitions="*,Auto,Auto" ColumnDefinitions="*,*"  Margin="15,0,15,0"> 
             <Frame  CornerRadius="15" Grid.ColumnSpan="3" Grid.RowSpan="3" Padding="0" Grid.Column="0" Grid.Row="0" HeightRequest="700">
-                <Image Source="RestAndRelax.jpg" Aspect="AspectFill" ></Image>
+                <Image Source="{Binding MiddleHeaderImage}" Aspect="AspectFill" ></Image>
             </Frame>
-            <Label Text="Rest and Relax" Grid.Column="0" Grid.Row="1" Margin="15,0,0,0" FontAttributes="Bold" TextColor="Black" FontSize="16"></Label>
+
+            <Label Text="{Binding MiddleHeaderImageText1}" Grid.Column="0" Grid.Row="1" Margin="15,0,0,0" FontAttributes="Bold" TextColor="Black" FontSize="16"></Label>
 
             <Grid Grid.Column="0" Grid.Row="2" ColumnDefinitions="Auto,Auto" >
-                <Image Source="time" Grid.Column="0" HeightRequest="15" Margin="15,0,0,0"></Image>
-                <Label Text="30 mins" Grid.Column="1"  FontSize="16"></Label>
+                <Image Source="{Binding MiddleHeaderImageBeforeText2}" Grid.Column="0" HeightRequest="15" Margin="15,0,0,0"></Image>
+                <Label Text="{Binding MiddleHeaderImageText2}" Grid.Column="1"  FontSize="16"></Label>
             </Grid>
         </Grid>
-        <Grid RowDefinitions="25" ColumnDefinitions="*, Auto" Margin="10,0,0,5">
-            <Label Text="New Music" FontSize="Large" FontAttributes="Bold" TextColor="Black"   Grid.Row="0" Grid.Column="0"/>
-            <Label Text="View All" FontSize="16" FontAttributes="Bold" Grid.Row="0" Grid.Column="1"/>
+        <Grid RowDefinitions="25" ColumnDefinitions="*, Auto" Margin="10,0,10,5">
+            <Label Text="{Binding BottomHeaderTitle}" FontSize="Large" FontAttributes="Bold" TextColor="Black"   Grid.Row="0" Grid.Column="0"/>
+            <Label Text="{Binding BottomHeaderTitle2}" FontSize="16" FontAttributes="Bold" Grid.Row="0" Grid.Column="1"/>
 
         </Grid>
 

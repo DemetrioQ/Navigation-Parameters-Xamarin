@@ -10,5 +10,9 @@ namespace Navigation_Parameters_Prism_Xamarin
         public const string MainTabbedPage = "MainTabbed";
         public const string HomePage = "Home";
         public const string DetailPage = "Detail";
+
+
+
+        public const string DetailParam = "Detail";
     }
 }

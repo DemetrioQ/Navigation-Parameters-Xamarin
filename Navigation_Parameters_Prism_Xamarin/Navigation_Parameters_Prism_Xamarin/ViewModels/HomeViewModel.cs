@@ -19,10 +19,9 @@ namespace Navigation_Parameters_Prism_Xamarin.ViewModels
         {
             Details = new ObservableCollection<Detail>() 
             { 
-                new Detail(){Title = "Raining Sidewalk", Image = "RainySidewalk.jpg", Duration="5 mins"},
-                new Detail(){Title = "Spring Morning", Image = "SpringMorning.jpg", Duration="7 mins"},
-                new Detail(){Title = "Peace Sign", Image = "PeaceSign.jpg", Duration="4 mins"},
-                new Detail(){Title = "Another Thing 2", Image = "", Duration="3 mins"}
+                new Detail(){Title = "Rainy Days on the Sidewalk", Image = "RainySidewalk.jpg", Duration="5 mins", Artist="Mondo Gascaro", Url="https://audio.jukehost.co.uk/gTn7m59KmtNQJBv029vNE0ys4h8fFRKG"},
+                new Detail(){Title = "A Fine Spring Morning", Image = "SpringMorning.jpg", Duration="7 mins", Artist="Blossom Dearie", Url="https://audio.jukehost.co.uk/45BykslmMQGoIBf6MAqiCbelDgn5upXP"},
+                new Detail(){Title = "Peace Sign", Image = "PeaceSign.jpg", Duration="4 mins", Artist="Kenshi Yonezu", Url="https://audio.jukehost.co.uk/ZN3YrMDLYK0yKhvzVNPsevZVoHI0tEq4"}
             };
             ShowDetailCommand = new DelegateCommand<Detail>(OnMove);
         }

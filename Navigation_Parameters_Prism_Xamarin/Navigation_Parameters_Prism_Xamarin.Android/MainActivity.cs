@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using MediaManager;
 
 namespace Navigation_Parameters_Prism_Xamarin.Droid
 {
@@ -23,6 +24,8 @@ namespace Navigation_Parameters_Prism_Xamarin.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CrossMediaManager.Current.Init(this);
+
             LoadApplication(new App(new AndroidInitializer()));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

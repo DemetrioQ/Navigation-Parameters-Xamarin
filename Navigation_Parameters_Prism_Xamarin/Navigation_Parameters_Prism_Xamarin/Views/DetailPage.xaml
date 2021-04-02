@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:mm="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
              x:Class="Navigation_Parameters_Prism_Xamarin.Views.DetailPage"
              >
     <NavigationPage.TitleView>
@@ -8,8 +8,25 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="{Binding Detail.Image}" Aspect="Fill" HeightRequest="250"></Image>
-            <Label Text="{Binding Detail.Duration}"></Label>
+            <Image Source="{Binding Detail.Image}" Aspect="Fill" HeightRequest="250" Margin="0"></Image>
+            <ImageButton Source="{Binding PlayIcon}" Aspect="AspectFit" HeightRequest="20" Command="{Binding PlayCommand}" Margin="5"></ImageButton>
+            <Label Margin="5" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Artist: " FontSize="16"  FontAttributes="Bold" TextColor="Black"/>
+                        <Span Text="{Binding Detail.Artist}" FontSize="16" TextColor="Black"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Text="{Binding Detail.Duration}" Margin="5" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Duration: " FontSize="16" FontAttributes="Bold" TextColor="Black"/>
+                        <Span Text="{Binding Detail.Duration}"  FontSize="16" TextColor="Black"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
